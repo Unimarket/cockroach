@@ -70,7 +70,7 @@ It may be preferable to monitor certificate chains rather than individual certif
 The location of certificates and keys can be specified using the `--certs-dir` command-line
 flag or the corresponding `COCKROACH_CERTS_DIR` environment variable.
 
-The flag value is a relative directory, with a default value of `cockroach-certs`.
+The flag value is a relative directory, with a default value of `~/.cockroach-certs`.
 
 We avoid using the `cockroach-data` directory for a few reasons:
 * the certs must exist before cockroach is run, making the directory less discoverable
@@ -318,7 +318,7 @@ file detection).
 Dropping specific cert flags means that the postgres URL will be built automatically from the
 requested username.
 
-For example, running the following command: `cockroach sql -u foo -certs-dir=cockroach-certs` will
+For example, running the following command: `cockroach sql -u foo -certs-dir=~/.cockroach-certs` will
 generate the URL: `postgresl://foo@localhost:26257/?sslcert=foo.client.crt&sslkey=foo.client.key&...`
 
 If delegation is allowed (user `root` can act as user `foo`), the command must be run with the
